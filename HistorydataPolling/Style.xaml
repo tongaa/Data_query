@@ -15,16 +15,7 @@
         <Setter Property="Stroke" Value="#619ED6"></Setter>
     </Style>
     <!--textbox 默认提示文字-->
-    <Style x:Key="InputTextBoxStyle_tgw" TargetType="TextBox">
-            <Style.Triggers>
-                <Trigger Property="Text" Value="{x:Null}">
-                    <Setter Property="Background" Value="{StaticResource HintText}"/>
-                </Trigger>
-                <Trigger Property="Text" Value="">
-                    <Setter Property="Background" Value="{StaticResource HintText}"/>
-                </Trigger>
-            </Style.Triggers>
-    </Style>
+    
 
     <!--textbox-->
     <Style x:Key="InputTextBoxStyle" TargetType="TextBox">
