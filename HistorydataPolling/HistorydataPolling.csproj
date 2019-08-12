@@ -1,0 +1,265 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0922B8CF-853A-408A-9466-A95931CDF01F}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HistorydataPolling</RootNamespace>
+    <AssemblyName>HistorydataPolling</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>false</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>
+    </StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpZipLib.0.86.0\lib\20\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1000\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.QualityTools.Testing.Fakes, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="MongoDB.Bson">
+      <HintPath>..\..\vs2017Demo\HistoricalDataQuery\bin\Debug\MongoDB.Bson.2.6.0\lib\net45\MongoDB.Bson.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Driver">
+      <HintPath>..\..\vs2017Demo\HistoricalDataQuery\bin\Debug\MongoDB.Driver.2.6.0\lib\net45\MongoDB.Driver.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Driver.Core">
+      <HintPath>..\..\vs2017Demo\HistoricalDataQuery\bin\Debug\MongoDB.Driver.Core.2.6.0\lib\net45\MongoDB.Driver.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Windows.Forms.DataVisualization.Design" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="Utility.Tool.Controls, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\ZhongziStar\trunk\AppProject\Service\HistoryDataRedisplayService\Utility.Tool.Controls\bin\Debug\Utility.Tool.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
+    <Reference Include="WpfSendKeys">
+      <HintPath>.\WpfSendKeys.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Common\DataBase\Mongodb\ConfigManager.cs" />
+    <Compile Include="Common\DataBase\Mongodb\MongoDBHelper.cs" />
+    <Compile Include="Common\WpfHelp\DataGridHelper.cs" />
+    <Compile Include="Common\FileCtrol\Common\ExportToExcel .cs" />
+    <Compile Include="Common\FileCtrol\SaveFile.cs" />
+    <Compile Include="Model\Package.cs" />
+    <Compile Include="Model\ParaMain.cs" />
+    <Compile Include="Model\ParaStorage.cs" />
+    <Compile Include="Model\SatInfomation.cs" />
+    <Compile Include="ViewModel\RegionInfo.cs" />
+    <Compile Include="ViewModel\RegionInfo2.cs" />
+    <Compile Include="Server\MainHandle\MainHandle.cs" />
+    <Compile Include="Server\ThreeLevelLinkageDataItem\SatinfoAndParaGroup.cs" />
+    <Compile Include="Server\TimeHandle\GetTimeRangeDate.cs" />
+    <Compile Include="Server\TimeHandle\TimeTypeHelper.cs" />
+    <Compile Include="Server\TimeHandle\UTCHelper.cs" />
+    <Compile Include="View\MainWindow2.xaml.cs">
+      <DependentUpon>MainWindow2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Wait.xaml.cs">
+      <DependentUpon>Wait.xaml</DependentUpon>
+    </Compile>
+    <Page Include="View\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="View\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Style.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\MainWindow2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Wait.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\img\add.png" />
+    <Resource Include="View\img\add2.png" />
+    <Resource Include="View\img\add3.png" />
+    <Resource Include="View\img\alert.png" />
+    <Resource Include="View\img\alert2.png" />
+    <Resource Include="View\img\alert3.png" />
+    <Resource Include="View\img\before.png" />
+    <Resource Include="View\img\bg6.png" />
+    <Resource Include="View\img\browse.png" />
+    <Resource Include="View\img\browse1.png" />
+    <Resource Include="View\img\browse2.png" />
+    <Resource Include="View\img\browse3.png" />
+    <Resource Include="View\img\clear.png" />
+    <Resource Include="View\img\clear2.png" />
+    <Resource Include="View\img\clear3.png" />
+    <Resource Include="View\img\clear4.png" />
+    <Resource Include="View\img\clear5.png" />
+    <Resource Include="View\img\Close.png" />
+    <Resource Include="View\img\create.png" />
+    <Resource Include="View\img\delete.png" />
+    <Resource Include="View\img\down.png" />
+    <Resource Include="View\img\End.png" />
+    <Resource Include="View\img\End2.png" />
+    <Resource Include="View\img\exit.png" />
+    <Resource Include="View\img\exit2.png" />
+    <Resource Include="View\img\gongneng.png" />
+    <Resource Include="View\img\install.png" />
+    <Resource Include="View\img\logo.png" />
+    <Resource Include="View\img\logo2.png" />
+    <Resource Include="View\img\logo3.png" />
+    <Resource Include="View\img\logo4.png" />
+    <Resource Include="View\img\logo5.png" />
+    <Resource Include="View\img\mokuai.png" />
+    <Resource Include="View\img\Mune.png" />
+    <Resource Include="View\img\next.png" />
+    <Resource Include="View\img\ReStart.png" />
+    <Resource Include="View\img\ReStart2.png" />
+    <Resource Include="View\img\ReStart3.png" />
+    <Resource Include="View\img\ReStart4.png" />
+    <Resource Include="View\img\select.png" />
+    <Resource Include="View\img\select2.png" />
+    <Resource Include="View\img\select3.png" />
+    <Resource Include="View\img\send.png" />
+    <Resource Include="View\img\Set.png" />
+    <Resource Include="View\img\Set2.png" />
+    <Resource Include="View\img\show.png" />
+    <Resource Include="View\img\show2.png" />
+    <Resource Include="View\img\show3.png" />
+    <Resource Include="View\img\show4.png" />
+    <Resource Include="View\img\Start.png" />
+    <Resource Include="View\img\success.png" />
+    <Resource Include="View\img\success2.png" />
+    <Resource Include="View\img\timg.jpg" />
+    <Resource Include="View\img\wait.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>4</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

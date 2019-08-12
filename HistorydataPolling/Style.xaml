@@ -1,0 +1,301 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <!--GroupBox-->
+    <Style x:Key="GroupBoxStyle" TargetType="GroupBox">
+        <Setter Property="BorderBrush" Value="Black"></Setter>
+        <Setter Property="BorderThickness" Value="0.3"></Setter>
+    </Style>
+    <!--grid-->
+    <Style x:Key="MuneGridStyle" TargetType="Grid">
+        <Setter Property="Background" Value="#081522"></Setter>
+    </Style>
+
+    <!--line-->
+    <Style x:Key="SplitLineStyle" TargetType="Line">
+        <Setter Property="Stroke" Value="#619ED6"></Setter>
+    </Style>
+    <!--textbox 默认提示文字-->
+    <Style x:Key="InputTextBoxStyle_tgw" TargetType="TextBox">
+            <Style.Triggers>
+                <Trigger Property="Text" Value="{x:Null}">
+                    <Setter Property="Background" Value="{StaticResource HintText}"/>
+                </Trigger>
+                <Trigger Property="Text" Value="">
+                    <Setter Property="Background" Value="{StaticResource HintText}"/>
+                </Trigger>
+            </Style.Triggers>
+    </Style>
+
+    <!--textbox-->
+    <Style x:Key="InputTextBoxStyle" TargetType="TextBox">
+        <Setter Property="Background" Value="#00000000"></Setter>
+        <Setter Property="BorderBrush" Value="#619ED6"></Setter>
+        <Setter Property="BorderThickness" Value="0,0,0,1"></Setter>
+        <Setter Property="Foreground" Value="White"></Setter>
+    </Style>
+    <Style x:Key="InputTextBoxStyle2" TargetType="TextBox">
+        <Setter Property="Background" Value="#00000000"></Setter>
+        <Setter Property="BorderThickness" Value="0"></Setter>
+        <Setter Property="Foreground" Value="White"></Setter>
+        <Setter Property="FontSize" Value="14"></Setter>
+    </Style>
+    <Style x:Key="InputTextBoxStyle3" TargetType="TextBox">
+        <Setter Property="Background" Value="#00000000"></Setter>
+        <Setter Property="BorderBrush" Value="White"></Setter>
+        <Setter Property="BorderThickness" Value="1"></Setter>
+        <Setter Property="Padding" Value="5"></Setter>
+        <Setter Property="Foreground" Value="White"></Setter>
+        <Setter Property="FontSize" Value="14"></Setter>
+        <Setter Property="IsEnabled" Value="False"></Setter>
+        <Setter Property="TextWrapping" Value="Wrap"></Setter>
+    </Style>
+    <!--passwprd-->
+    <Style x:Key="InputPasswordBoxStyle" TargetType="PasswordBox">
+        <Setter Property="Background" Value="#00000000"></Setter>
+        <Setter Property="BorderBrush" Value="#619ED6"></Setter>
+        <Setter Property="BorderThickness" Value="0,0,0,1"></Setter>
+        <Setter Property="Foreground" Value="White"></Setter>
+    </Style>
+    <!--textblock-->
+    <Style x:Key="MuneTextBlockStyle" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="White"></Setter>
+        <Setter Property="FontSize" Value="14"></Setter>
+    </Style>
+
+    <Style x:Key="InputTitleTextBlockStyle" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="White"></Setter>
+        <Setter Property="FontSize" Value="14"></Setter>
+        <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+        <Setter Property="VerticalAlignment" Value="Center"></Setter>
+    </Style>
+
+    <Style x:Key="WindosTitleTextBlockStyle" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="White"></Setter>
+        <Setter Property="FontSize" Value="16"></Setter>
+    </Style>
+
+
+    <Style x:Key="TextBlockStyle2" TargetType="TextBlock">
+        <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+        <Setter Property="VerticalAlignment" Value="Center"></Setter>
+        <Setter Property="Background" Value="Transparent"></Setter>
+        <Setter Property="Foreground" Value="White"></Setter>
+        <Setter Property="FontSize" Value="16"></Setter>
+        <Setter Property="Margin" Value="10,0"></Setter>
+    </Style>
+
+    <Style x:Key="TitleTextBlockStyle" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="#CDD7D7"></Setter>
+        <Setter Property="FontSize" Value="20"></Setter>
+        <Setter Property="FontWeight" Value="Bold"></Setter>
+    </Style>
+
+    <Style x:Key="MiniTitleTextBlockStyle" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="#619ED6"></Setter>
+        <Setter Property="FontSize" Value="14"></Setter>
+    </Style>
+    <Style x:Key="MsgTextBlockStyle" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="White"></Setter>
+        <Setter Property="FontSize" Value="14"></Setter>
+        <Setter Property="TextWrapping" Value="Wrap"></Setter>
+        <Setter Property="HorizontalAlignment" Value="Left"></Setter>
+        <Setter Property="VerticalAlignment" Value="Center"></Setter>
+    </Style>
+    <!--datagrid 样式-->
+    <Style x:Key="DataGridRowStyle" TargetType="DataGridRow">
+        <Setter Property="Background" Value="#00000000"/>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#00000000"/>
+                <Setter Property="Foreground" Value="White"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <Style x:Key="DataGridCellStyle" TargetType="DataGridCell">
+        <Setter Property="BorderThickness" Value="0"/>
+        <Style.Triggers>
+            <Trigger Property="IsSelected" Value="True">
+                <Setter Property="Background" Value="#00000000"/>
+                <Setter Property="Foreground" Value="White"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <Style x:Key="DataGridTextColumnSytle" TargetType="{x:Type TextBlock}">
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="Margin" Value="3,0" />
+    </Style>
+    <Style x:Key="DataGridColumnHeaderStyle" TargetType="DataGridColumnHeader">
+        <Setter Property="Background">
+            <Setter.Value>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="DataGridStyle" TargetType="DataGrid">
+        <Setter Property="ColumnHeaderStyle" Value="{DynamicResource DataGridColumnHeaderStyle}"></Setter>
+        <Setter Property="RowStyle" Value="{DynamicResource DataGridRowStyle}"></Setter>
+        <Setter Property="CellStyle" Value="{DynamicResource DataGridCellStyle}"></Setter>
+        <!--<Setter Property="IsReadOnly" Value="True"></Setter>-->
+        <Setter Property="GridLinesVisibility" Value="Horizontal"></Setter>
+        <Setter Property="CanUserAddRows" Value="False"></Setter>
+        <Setter Property="RowHeight" Value="40"></Setter>
+        <Setter Property="HeadersVisibility" Value="Column"></Setter>
+        <Setter Property="Margin" Value="5,5"></Setter>
+        <Setter Property="AutoGenerateColumns" Value="False"></Setter>
+        <Setter Property="BorderThickness" Value="0"></Setter>
+        <Setter Property="FontSize" Value="15"></Setter>
+        <Setter Property="Foreground" Value="White"></Setter>
+        <Setter Property="Background" Value="#00000000"></Setter>
+        <Setter Property="HorizontalGridLinesBrush" Value="CornflowerBlue"></Setter>
+    </Style>
+    
+
+    <!--窗体样式-->
+
+
+    <Style x:Key="WindowStyle" TargetType="Window">
+        <Setter Property="WindowStyle" Value="None"></Setter>
+        <Setter Property="ResizeMode" Value="NoResize"></Setter>
+        <Setter Property="Background" Value="#FAFAF6"></Setter>
+    </Style>
+
+
+    <!--boder-->
+    <Style x:Key="BorderBackStyle" TargetType="Border" >
+        <Setter Property="Background" Value="#081522"></Setter>
+        <Setter Property="BorderBrush" Value="#081522"></Setter>
+        <Setter Property="BorderThickness" Value="0"></Setter>
+        <Setter Property="CornerRadius" Value="10"></Setter>
+    </Style>
+    <Style x:Key="MessageBorderStyle" TargetType="Border">
+        <Setter Property="Background" Value="#081522"></Setter>
+        <Setter Property="BorderBrush" Value="#619ED6"></Setter>
+        <Setter Property="BorderThickness" Value="1"></Setter>
+        <Setter Property="CornerRadius" Value="10"></Setter>
+    </Style>
+    <Style x:Key="WindosTileBorderStyle" TargetType="Border">
+        <Setter Property="BorderBrush" Value="#619ED6"></Setter>
+        <Setter Property="BorderThickness" Value="0,0,0,1"></Setter>
+        <Setter Property="Height" Value="3"></Setter>
+        <Setter Property="VerticalAlignment" Value="Bottom"></Setter>
+    </Style>
+
+    <Style x:Key="RightLineBorderStyle" TargetType="Border">
+        <Setter Property="BorderBrush" Value="#619ED6"></Setter>
+        <Setter Property="BorderThickness" Value="0,0,1,0"></Setter>
+        <Setter Property="Width" Value="3"></Setter>
+        <Setter Property="HorizontalAlignment" Value="Right"></Setter>
+    </Style>
+
+    <Style x:Key="WindosBorderStyle" TargetType="Border">
+        <Setter Property="BorderBrush" Value="#0E2B49"></Setter>
+        <Setter Property="BorderThickness" Value="1"></Setter>
+    </Style>
+
+    <Style x:Key="ButtonBorderStyle" TargetType="Border">
+        <Setter Property="BorderThickness" Value="1"></Setter>
+        <Setter Property="Background" Value="#13399F"></Setter>
+        <Setter Property="CornerRadius" Value="3"></Setter>
+        <Setter Property="BorderBrush" Value="Black"></Setter>
+    </Style>
+
+    <Style x:Key="DataListBorderStyle" TargetType="Border">
+        <Setter Property="BorderBrush" Value="#FF006CFF"></Setter>
+        <Setter Property="BorderThickness" Value="1"></Setter>
+        <Setter Property="Background" Value="#7F2028BA"></Setter>
+        <Setter Property="CornerRadius" Value="10"></Setter>
+    </Style>
+<!--radiobutton-->
+   
+   
+    <!--listbox-->
+    <Style x:Key="LogListBoxStyle" TargetType="ListBox">
+        <Setter Property="Background" Value="Transparent"></Setter>
+        <Setter Property="BorderThickness" Value="0"></Setter>
+        <Setter Property="Foreground" Value="White"></Setter>
+    </Style>
+
+    <Style x:Key="TabItemStyle" TargetType="TabItem">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type TabItem}">
+                    <Grid>
+                        <Border Name="Border" Background="Transparent" BorderBrush="#619ED6" BorderThickness="1,1,1,0" >
+                            <ContentPresenter x:Name="ContentSite" VerticalAlignment="Center" HorizontalAlignment="Center"  ContentSource="Header" Margin="12,2,12,2"/>
+                        </Border>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter TargetName="Border" Property="Background" Value="Transparent" />
+                            <Setter TargetName="Border" Property="Height" Value="30" />
+                        </Trigger>
+                        <Trigger Property="IsSelected" Value="False">
+                            <Setter TargetName="Border" Property="Background" Value="Transparent" />
+                            <Setter TargetName="Border" Property="Height" Value="25" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--Button-->
+    <Style x:Key="ButtonStyle" TargetType="Button">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border Background="{TemplateBinding Background}" BorderBrush="Transparent" BorderThickness="0" Padding="{TemplateBinding Padding}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Foreground" Value="White"></Setter>
+        <Setter Property="Background" Value="#FF007ACC"></Setter>
+        <Setter Property="FontSize" Value="14"></Setter>
+        <Setter Property="Padding" Value="15,3"></Setter>
+    </Style>
+
+    <Style x:Key="ButtonStyle2" TargetType="Button">
+        <Setter Property="BorderBrush" Value="Gray"></Setter>
+        <Setter Property="Foreground" Value="White"></Setter>
+        <Setter Property="Background" Value="Transparent"></Setter>
+        <Setter Property="Margin" Value="10"></Setter>
+        <Setter Property="FontSize" Value="16"></Setter>
+        <Setter Property="Padding" Value="15,3"></Setter>
+    </Style>
+    <!--Combox右侧下拉按钮-->
+    <Style TargetType="ToggleButton" x:Key="ComboxStyleBtn">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <!--下拉按钮内部背景色-->
+                    <Border x:Name="Back" Background="#001f55" BorderThickness="1" BorderBrush="Transparent">
+                        <!--下拉按钮内边框-->
+                        <Path Name="PathFill" Fill="#03ffea"  Width="10" Height="6" StrokeThickness="0" Data="M5,0 L10,10 L0,10 z" RenderTransformOrigin="0.5,0.5" Stretch="Fill">
+                            <Path.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform Angle="180"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </Path.RenderTransform>
+                        </Path>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="PathFill" Property="Fill" Value="White"></Setter>
+                            <Setter TargetName="Back" Property="Background" Value="#00CA4F"></Setter>
+                            <Setter TargetName="Back" Property="BorderBrush" Value="#59CA4F"></Setter>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+
+</ResourceDictionary>
