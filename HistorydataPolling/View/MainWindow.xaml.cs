@@ -32,7 +32,7 @@ namespace HistorydataPolling
     /// <summary>
     /// MainWindow.xaml 的交互逻辑
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class TestPage1 : Window
     {
         private void SendToUIThread(UIElement element, string text)
         {
@@ -41,7 +41,7 @@ namespace HistorydataPolling
 
         ObservableCollection<RegionInfo> regionInfoList = new ObservableCollection<RegionInfo>();//DataGrid的数据源
         ObservableCollection<RegionInfo> regionInfoSelectList = new ObservableCollection<RegionInfo>();//用于DataGrid的模板加载时提供选项
-        public MainWindow()
+        public TestPage1()
         {
             InitializeComponent();
 
@@ -287,6 +287,11 @@ namespace HistorydataPolling
             //testExcel.Export(this.DATA_GRIDpp, "rrr");
          
         }
+
+        //public static implicit operator Uri(TestPage1 v)
+        //{
+        //    throw new NotImplementedException();
+        //}
         //  else
         // {
         //   MessageBox.Show("取消保存");

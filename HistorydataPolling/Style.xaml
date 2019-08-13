@@ -244,7 +244,7 @@
         </Setter>
         <Setter Property="Foreground" Value="White"></Setter>
         <Setter Property="Background" Value="#FF007ACC"></Setter>
-        <Setter Property="FontSize" Value="14"></Setter>
+        <Setter Property="FontSize" Value="12"></Setter>
         <Setter Property="Padding" Value="15,3"></Setter>
     </Style>
 

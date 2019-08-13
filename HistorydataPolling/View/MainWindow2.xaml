@@ -7,8 +7,15 @@
         xmlns:local="clr-namespace:HistorydataPolling.View"
      
         xmlns:View="clr-namespace:Utility.Tool.Controls.View;assembly=Utility.Tool.Controls"
+      
         mc:Ignorable="d" Style="{StaticResource WindowStyle}" Background="Transparent"
-        Title="MainWindow2" Height="450" Width="800">
+        WindowStartupLocation="CenterScreen" 
+       
+        Title="MainWindow2" Height="450" Width="800"
+       
+       
+    >
+
     <Border Style="{StaticResource MessageBorderStyle}">
         <Grid>
             <Grid.RowDefinitions>
@@ -38,17 +45,23 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="102*"></ColumnDefinition>
                     <ColumnDefinition Width="101*"></ColumnDefinition>
-                    <ColumnDefinition Width="12*"></ColumnDefinition>
-                    <ColumnDefinition Width="142*"></ColumnDefinition>
+                    <ColumnDefinition Width="96*"></ColumnDefinition>
+                    <ColumnDefinition Width="58*"></ColumnDefinition>
                     <ColumnDefinition Width="138*"></ColumnDefinition>
                     <ColumnDefinition Width="197*"></ColumnDefinition>
                     <ColumnDefinition Width="6*"></ColumnDefinition>
                     <ColumnDefinition Width="100*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
 
-                <Button   Content="数据库配置" Grid.Row="0" Grid.Column="0" Margin="3">
+                <Button  Style="{StaticResource ButtonStyle}"  Content="数据库配置" Grid.Row="0" Grid.Column="0" Margin="3" FontWeight="Bold">
                 </Button>
-                <ComboBox  Grid.Row="0" Grid.Column="1" Margin="3">
+                <Button IsEnabled="False" Style="{StaticResource ButtonStyle}" Grid.Row="0" Grid.Column="1" Content="选择卫星  ：" FontSize="13" Margin="3" FontWeight="Bold" ></Button>
+                <ComboBox x:Name="combox_type" Grid.Row="0" Grid.Column="2" ItemsSource="{Binding }" DisplayMemberPath="SatName" Margin="3"  
+                   DropDownOpened="Combox_type_DropDownOpened" SelectedIndex="0"   >
+
+
+
+
                 </ComboBox>
                 <Border Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="8" Style="{StaticResource WindosTileBorderStyle}"/>
                 <!--StackPanel -->
@@ -57,32 +70,38 @@
                     <RadioButton  Height="47"  Margin="5" Content="指令参数" TextElement.Foreground="White" />
                 </StackPanel>
                 <Border Grid.Row="1" Grid.Column="0" Grid.RowSpan="8" Style="{StaticResource RightLineBorderStyle}" Height="Auto"  />
-                <TextBox    Grid.Row="1" Grid.Column="1"  Margin="5,14,0,6" Grid.ColumnSpan="2">
-                    <TextBox.Resources>
-                        <VisualBrush x:Key="HintText" TileMode="None" Opacity="0.5" Stretch="None" AlignmentX="Left">
-                            <VisualBrush.Visual>
-                                <TextBlock FontStyle="Italic" Text="输入要查询的参数" Style="{StaticResource TextBlockStyle2}" FontSize="11" />
-                            </VisualBrush.Visual>
-                        </VisualBrush>
-                    </TextBox.Resources>
-                    <TextBox.Style>
-                        <Style TargetType="TextBox">
-                            <Style.Triggers>
-                                <Trigger Property="Text" Value="{x:Null}">
-                                    <Setter Property="Background" Value="{StaticResource HintText}"/>
-                                </Trigger>
-                                <Trigger Property="Text" Value="">
-                                    <Setter Property="Background" Value="{StaticResource HintText}"/>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </TextBox.Style>
-                </TextBox>
-                <TextBlock x:Name="tbTimeStart" Grid.Row="1" Grid.Column="3" Style="{StaticResource TextBlockStyle2}" Text="起始时间：" Height="20" Margin="20,18,42,9" Width="80" RenderTransformOrigin="0.55,-0.35" />
-                <View:DateTimePicker Grid.Column="3" x:Name="SelectedStartTime" Margin="49,5,0,42" Grid.ColumnSpan="2" Grid.RowSpan="2" Grid.Row="1" />
-                <TextBlock x:Name="tbTimeEnd" Grid.Row="1" Grid.Column="4" Style="{StaticResource TextBlockStyle2}" Text="结束时间：" Grid.ColumnSpan="2" Margin="102,18,153,9" Height="20" Width="80"/>
-                <View:DateTimePicker Grid.Row="1" Grid.Column="5" x:Name="SelectedStopTime" Margin="16,5,0,42" Grid.RowSpan="2" RenderTransformOrigin="0.302,0.426" Grid.ColumnSpan="2" />
-                <Button x:Name="btnSeek" Grid.Row="1" Grid.Column="7" Style="{StaticResource ButtonStyle2}" Content="查询"  Margin="4,14,16,6"  ></Button>
+
+                <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.ColumnSpan="7" Grid.Column="1" >
+                    <TextBox Width="110"  Margin="6"   >
+                        <TextBox.Resources>
+                            <VisualBrush x:Key="HintText" TileMode="None" Opacity="0.5" Stretch="None" AlignmentX="Left">
+                                <VisualBrush.Visual>
+                                    <TextBlock FontStyle="Italic" Text="输入要查询的参数" Style="{StaticResource TextBlockStyle2}" FontSize="11" />
+                                </VisualBrush.Visual>
+                            </VisualBrush>
+                        </TextBox.Resources>
+                        <TextBox.Style>
+                            <Style TargetType="TextBox">
+                                <Style.Triggers>
+                                    <Trigger Property="Text" Value="{x:Null}">
+                                        <Setter Property="Background" Value="{StaticResource HintText}"/>
+                                    </Trigger>
+                                    <Trigger Property="Text" Value="">
+                                        <Setter Property="Background" Value="{StaticResource HintText}"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBox.Style>
+                    </TextBox>
+                    <TextBlock x:Name="tbTimeStart"   Style="{StaticResource TextBlockStyle2}" Text="起始时间："  RenderTransformOrigin="0.55,-0.35" />
+                    <View:DateTimePicker  x:Name="SelectedStartTime"  />
+                    <TextBlock x:Name="tbTimeEnd"  Style="{StaticResource TextBlockStyle2}" Text="结束时间："  />
+                    <View:DateTimePicker  x:Name="SelectedStopTime"   RenderTransformOrigin="0.302,0.426"  />
+                    <Button x:Name="btnSeek"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Style="{StaticResource ButtonStyle2}" Content="查询"    />
+
+
+                </StackPanel>
+                <Frame x:Name="frame" Content="Frame"  Grid.Row="2" Grid.Column="1" Grid.RowSpan="7" Grid.ColumnSpan="7" />
 
 
 
