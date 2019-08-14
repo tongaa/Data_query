@@ -11,7 +11,7 @@
         mc:Ignorable="d" Style="{StaticResource WindowStyle}" Background="Transparent"
         WindowStartupLocation="CenterScreen" 
        
-        Title="MainWindow2" Height="450" Width="800"
+        Title="MainWindow2" Height="600" Width="800"
        
        
     >
@@ -57,7 +57,7 @@
                 </Button>
                 <Button IsEnabled="False" Style="{StaticResource ButtonStyle}" Grid.Row="0" Grid.Column="1" Content="选择卫星  ：" FontSize="13" Margin="3" FontWeight="Bold" ></Button>
                 <ComboBox x:Name="combox_type" Grid.Row="0" Grid.Column="2" ItemsSource="{Binding }" DisplayMemberPath="SatName" Margin="3"  
-                   DropDownOpened="Combox_type_DropDownOpened" SelectedIndex="0"   >
+                   DropDownOpened="Combox_type_DropDownOpened" SelectedIndex="0"    >
 
 
 
@@ -66,13 +66,13 @@
                 <Border Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="8" Style="{StaticResource WindosTileBorderStyle}"/>
                 <!--StackPanel -->
                 <StackPanel Grid.Row="1" Grid.Column="0" Grid.RowSpan="8">
-                    <RadioButton   Height="47"  Margin="5"  Content="遥测参数" TextElement.Foreground="White" />
-                    <RadioButton  Height="47"  Margin="5" Content="指令参数" TextElement.Foreground="White" />
+                    <RadioButton   Height="47"  Margin="5"  Content="遥测参数" TextElement.Foreground="White" Click="RadioButton_Click" />
+                    <RadioButton  Height="47"  Margin="5" Content="指令参数" TextElement.Foreground="White" Click="RadioButton_Click_1" />
                 </StackPanel>
                 <Border Grid.Row="1" Grid.Column="0" Grid.RowSpan="8" Style="{StaticResource RightLineBorderStyle}" Height="Auto"  />
 
                 <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.ColumnSpan="7" Grid.Column="1" >
-                    <TextBox Width="110"  Margin="6"   >
+                    <TextBox Width="111"  Margin="5,15,6,23" RenderTransformOrigin="0.491,1.061"   >
                         <TextBox.Resources>
                             <VisualBrush x:Key="HintText" TileMode="None" Opacity="0.5" Stretch="None" AlignmentX="Left">
                                 <VisualBrush.Visual>
@@ -81,7 +81,7 @@
                             </VisualBrush>
                         </TextBox.Resources>
                         <TextBox.Style>
-                            <Style TargetType="TextBox">
+                            <Style TargetType="{x:Type TextBox}">
                                 <Style.Triggers>
                                     <Trigger Property="Text" Value="{x:Null}">
                                         <Setter Property="Background" Value="{StaticResource HintText}"/>
@@ -97,11 +97,11 @@
                     <View:DateTimePicker  x:Name="SelectedStartTime"  />
                     <TextBlock x:Name="tbTimeEnd"  Style="{StaticResource TextBlockStyle2}" Text="结束时间："  />
                     <View:DateTimePicker  x:Name="SelectedStopTime"   RenderTransformOrigin="0.302,0.426"  />
-                    <Button x:Name="btnSeek"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Style="{StaticResource ButtonStyle2}" Content="查询"    />
+                    <Button x:Name="btnSeek"   VerticalAlignment="Stretch"  Style="{StaticResource ButtonStyle2}" Content="查询" Width="63" Height="35" Margin="5,1"  />
 
 
                 </StackPanel>
-                <Frame x:Name="frame" Content="Frame"  Grid.Row="2" Grid.Column="1" Grid.RowSpan="7" Grid.ColumnSpan="7" />
+                <Frame x:Name="frame"   Grid.Row="2" Grid.Column="1" Grid.RowSpan="7" Grid.ColumnSpan="7" />
 
 
 

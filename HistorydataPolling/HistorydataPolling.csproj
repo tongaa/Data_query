@@ -116,6 +116,7 @@
     <Compile Include="Common\WpfHelp\DataGridHelper.cs" />
     <Compile Include="Common\FileCtrol\Common\ExportToExcel .cs" />
     <Compile Include="Common\FileCtrol\SaveFile.cs" />
+    <Compile Include="IServe\ISearchBase.cs" />
     <Compile Include="Model\Package.cs" />
     <Compile Include="Model\ParaMain.cs" />
     <Compile Include="Model\ParaStorage.cs" />

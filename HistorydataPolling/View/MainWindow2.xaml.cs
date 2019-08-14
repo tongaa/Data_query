@@ -1,5 +1,7 @@
 ﻿using HistorydataPolling.Model;
+using HistorydataPolling.Server.ThreeLevelLinkageDataItem;
 using HistorydataPolling.ViewModel;
+using MongoDB.Bson;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -25,9 +27,8 @@ namespace HistorydataPolling.View
         public MainWindow2()
         {
             InitializeComponent();
-          
-            
-            frame.Content = new TestPage1();
+
+          //  frame.Content = new TestPage1();
 
         }
 
@@ -68,18 +69,27 @@ namespace HistorydataPolling.View
         /// <param name="e"></param>
         private void Combox_type_DropDownOpened(object sender, EventArgs e) //单击combox控件的事件
         {
-            Console.WriteLine("1213225");
+
+            List<BsonDocument> satinfoList = new List<BsonDocument>();
+
             ObservableCollection<SatinfoName> ResultList = new ObservableCollection<SatinfoName>();
-            
-            ResultList.Add(new SatinfoName("g1"));
-            ResultList.Add(new SatinfoName("g2"));
-            ResultList.Add(new SatinfoName("g3"));
-            ResultList.Add(new SatinfoName("g4"));
+            SatinfoAndParaGroup satinfo = new SatinfoAndParaGroup();
+            satinfo.getSatinfo();
+        
+           
            
             combox_type.ItemsSource = ResultList;
         }
 
-      
+        private void RadioButton_Click(object sender, RoutedEventArgs e)
+        {
+            Console.WriteLine("RadioButton_Click--001");
+        }
+
+        private void RadioButton_Click_1(object sender, RoutedEventArgs e)
+        {
+            Console.WriteLine("RadioButton_Click_2");
+        }
     }
 
 }

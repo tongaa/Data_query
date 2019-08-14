@@ -69,6 +69,41 @@ namespace HistorydataPolling.Server.ThreeLevelLinkageDataItem
             return DataForSelect;
 
         }
+
+        public  void  getSatinfo() //for combox 下拉显示
+
+        {
+            List<BsonDocument> satinfoList = new List<BsonDocument>();
+            col = MongoDBHelper<SatInfomation>.Init();
+
+
+            //创建约束生成器
+            FilterDefinitionBuilder<BsonDocument> builder = Builders<BsonDocument>.Filter;
+
+            ProjectionDefinitionBuilder<BsonDocument> builderProjection = Builders<BsonDocument>.Projection;
+            //Include 包含某元素    Exclude  不包含某元素
+            ProjectionDefinition<BsonDocument> projection = builderProjection.Include("SatName").Exclude("_id");
+            try
+            {
+                var result = col.Find<BsonDocument>(builder.Empty).Project(projection).ToList();
+
+            
+           
+            foreach (var item in result)
+            {
+                //取出整条值
+                Console.WriteLine(item);
+            }
+            }
+
+            catch (Exception e)
+            {
+
+               Console.WriteLine("mongodb连接失败" + e.Message); //只是输出终端显示 异常信息 
+           //  throw;  //这是主动抛出异常  会使程序停止
+            }
+
+        }
     }
 }
 
