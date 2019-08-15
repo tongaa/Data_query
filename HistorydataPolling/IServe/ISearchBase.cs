@@ -11,7 +11,7 @@ namespace HistorydataPolling.IServe
     //数据查询接口
     interface ISearchBase
     {
-      List<BsonDocument> SearchDataForNeed();
+     List<BsonDocument> SearchDataForNeed(DateTime startTime, DateTime stopTime, string parameter, string whichPara);
 
     }
 }

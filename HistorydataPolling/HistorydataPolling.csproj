@@ -117,10 +117,12 @@
     <Compile Include="Common\FileCtrol\Common\ExportToExcel .cs" />
     <Compile Include="Common\FileCtrol\SaveFile.cs" />
     <Compile Include="IServe\ISearchBase.cs" />
+    <Compile Include="Model\InstructPara.cs" />
     <Compile Include="Model\Package.cs" />
     <Compile Include="Model\ParaMain.cs" />
     <Compile Include="Model\ParaStorage.cs" />
     <Compile Include="Model\SatInfomation.cs" />
+    <Compile Include="Server\MainHandle\MainForButtonHandle.cs" />
     <Compile Include="ViewModel\RegionInfo.cs" />
     <Compile Include="ViewModel\RegionInfo2.cs" />
     <Compile Include="Server\MainHandle\MainHandle.cs" />
@@ -132,11 +134,14 @@
     <Compile Include="View\MainWindow2.xaml.cs">
       <DependentUpon>MainWindow2.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\TestPage1.xaml.cs">
-      <DependentUpon>TestPage1.xaml</DependentUpon>
+    <Compile Include="View\YCPage.xaml.cs">
+      <DependentUpon>YCPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Wait.xaml.cs">
       <DependentUpon>Wait.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ZLPage.xaml.cs">
+      <DependentUpon>ZLPage.xaml</DependentUpon>
     </Compile>
     <Page Include="View\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -158,11 +163,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\TestPage1.xaml">
+    <Page Include="View\YCPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
     <Page Include="View\Wait.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ZLPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
