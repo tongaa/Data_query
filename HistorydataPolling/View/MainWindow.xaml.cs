@@ -235,7 +235,7 @@ namespace HistorydataPolling
             }
             else
             {
-                MessageBox.Show("没有查询到数据......");
+                MessageBox.Show("查询不到数据...");
             }
 
 

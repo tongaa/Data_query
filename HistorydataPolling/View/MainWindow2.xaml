@@ -11,7 +11,7 @@
         mc:Ignorable="d" Style="{StaticResource WindowStyle}" Background="Transparent"
         WindowStartupLocation="CenterScreen" 
        
-        Title="MainWindow2" Height="600" Width="800"
+        Title="MainWindow2" Height="800" Width="900"
        
        
     >
@@ -72,7 +72,7 @@
                 <Border Grid.Row="1" Grid.Column="0" Grid.RowSpan="8" Style="{StaticResource RightLineBorderStyle}" Height="Auto"  />
 
                 <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.ColumnSpan="7" Grid.Column="1" >
-                    <TextBox x:Name="tBPara" Width="111"  Margin="5,15,6,23" RenderTransformOrigin="0.491,1.061"   >
+                    <TextBox x:Name="tBPara" Width="111"  Margin="5,28,6,28" RenderTransformOrigin="0.491,1.061"   >
                         <TextBox.Resources>
                             <VisualBrush x:Key="HintText" TileMode="None" Opacity="0.5" Stretch="None" AlignmentX="Left">
                                 <VisualBrush.Visual>
@@ -101,7 +101,7 @@
 
 
                 </StackPanel>
-                <Frame x:Name="frame"   Grid.Row="2" Grid.Column="1" Grid.RowSpan="7" Grid.ColumnSpan="7" />
+                <Frame x:Name="frame"  NavigationUIVisibility="Hidden" Grid.Row="2" Grid.Column="1" Grid.RowSpan="7" Grid.ColumnSpan="7" />
 
 
 

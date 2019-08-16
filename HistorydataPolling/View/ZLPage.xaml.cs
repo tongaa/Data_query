@@ -1,5 +1,8 @@
-﻿using System;
+﻿using HistorydataPolling.Server.MainHandle;
+using HistorydataPolling.ViewModel;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,9 +23,40 @@ namespace HistorydataPolling.View
     /// </summary>
     public partial class ZLPage : Page
     {
+
+        MainWindow2 parentWindow = new MainWindow2();
+
+        public MainWindow2 ParentWindow
+        {
+            get { return parentWindow; }
+            set { parentWindow = value; }
+        }
         public ZLPage()
         {
             InitializeComponent();
         }
+        public void GetInstructionData(string  whichPara) //for 遥测数据 page显示
+        {
+            ObservableCollection<InstructionParaListory> paraResultList = new ObservableCollection<InstructionParaListory>();
+           
+            MainForButtonHandle handle = new MainForButtonHandle();
+
+            // MainWindow2 parentWindow = new MainWindow2();
+
+            string ParaCode = ParentWindow.tBPara.Text;
+            DateTime t1 = ParentWindow.SelectedStartTime.SelectDateTime;
+            DateTime t2 = this.parentWindow.SelectedStopTime.SelectDateTime;
+            paraResultList = handle.SearchDataForNeed(t1, t2, ParaCode, whichPara);
+            if (paraResultList.Count > 0)
+            {
+                DisplayInstructValues.ItemsSource = paraResultList;  //显示查询结果
+            }
+            else
+            {
+                MessageBox.Show("查询不到数据...");
+            }
+
+        }
+
     }
 }

@@ -25,9 +25,6 @@ using static HistorydataPolling.FileCtrol.Common.ff;
 using HistorydataPolling.FileCtrol.Common;
 
 
-
-//备用
-
 namespace HistorydataPolling.View
 {
     /// <summary>
@@ -48,11 +45,9 @@ namespace HistorydataPolling.View
         {
             InitializeComponent();
 
-         
-
         }
 
-        public void test()
+        public void GetTelemetryData() //for 遥测数据 page显示
         {
             ObservableCollection<ParaListory> paraResultList = new ObservableCollection<ParaListory>();
             /* ((this.FindName("DATA_GRIDpp")) as DataGrid)*/
@@ -71,7 +66,7 @@ namespace HistorydataPolling.View
             }
             else
             {
-                MessageBox.Show("没有查询到数据......");
+                MessageBox.Show("查询不到数据...");
             }
 
         }

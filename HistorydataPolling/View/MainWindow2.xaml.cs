@@ -28,8 +28,6 @@ namespace HistorydataPolling.View
         public MainWindow2()
         {
             InitializeComponent();
-         
-            //  frame.Content = new TestPage1();
 
         }
 
@@ -44,6 +42,8 @@ namespace HistorydataPolling.View
         private void CloseWindow(object sender, MouseButtonEventArgs e)
         {
             this.Close();
+            App.Current.Shutdown(); //强制退出调试模式
+            
         }
 
 
@@ -51,6 +51,7 @@ namespace HistorydataPolling.View
         #endregion
         /// <summary>
         /// 选择卫星的combox控件
+        ///string d= combox_type.Text; //获得combox当前显示的数据
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -72,41 +73,36 @@ namespace HistorydataPolling.View
         }
 
 
-     
-
-            //string d= combox_type.Text; //获得combox当前显示的数据
-
-
-
-
-
-
 
 
         private void BtnSeek_Click(object sender, RoutedEventArgs e)
         {
-            string whichPara = null;
+            string whichPara= null;
             List<BsonDocument> temp = new List<BsonDocument>();
+            if (string.IsNullOrEmpty(tBPara.Text))
+            {
+                MessageBox.Show("请输入查询信息！");
+                return ;
+            }
             if (RadioButtonYC.IsChecked == true)
             {
-                whichPara = "RadioButtonYC";
-              
-              //  frame.Content =new  YCPage();
+                whichPara = "RadioButtonYC".ToString();
                 YCPage yCPage = new YCPage();
-                yCPage.test();
+              
                 frame.Content = yCPage;
                 yCPage.ParentWindow = this;
-                
+                yCPage.GetTelemetryData(); //为遥测数据page赋值
             }
             else if(RadioButtonZL.IsChecked == true)
             {
-                whichPara = "RadioButtonZL";
-            }
-            //DateTime t1 = this.SelectedStartTime.SelectDateTime;
-            //DateTime t2 = this.SelectedStopTime.SelectDateTime;
+                whichPara = "RadioButtonZL".ToString();
+                ZLPage zlPage = new ZLPage();
+                frame.Content = zlPage;
+                zlPage.ParentWindow = this; //指定父级窗口
+                zlPage.GetInstructionData(whichPara); //为遥测数据page赋值
 
-            //MainForButtonHandle buttonHandle = new MainForButtonHandle();
-            //temp = buttonHandle.SearchDataForNeed(t1,t2,tBPara.Text, whichPara);
+            }
+          
 
            
         }

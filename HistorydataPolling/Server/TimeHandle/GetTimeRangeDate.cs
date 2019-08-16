@@ -67,6 +67,16 @@ namespace HistorydataPolling.Server
             return result;
         }
 
+
+        /// <summary>
+        /// 从指定数据库获取指定的数据集合，然后查询有关满足条件的记录
+        /// </summary>
+        /// <param name="startTime"></param>
+        /// <param name="stopTime"></param>
+        /// <param name="Para">输入的查询参数</param>
+        /// <param name="whichPara"></param>
+        /// <param name="limitVal"></param>
+        /// <returns></returns>
         public static List<BsonDocument> GetBaseData(int startTime, int stopTime, string Para, string whichPara, int limitVal)
         {
             List<BsonDocument> result = new List<BsonDocument>();

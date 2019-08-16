@@ -130,7 +130,8 @@
     <Compile Include="Server\TimeHandle\GetTimeRangeDate.cs" />
     <Compile Include="Server\TimeHandle\TimeTypeHelper.cs" />
     <Compile Include="Server\TimeHandle\UTCHelper.cs" />
-    <Compile Include="ViewModel\SatinfoName.cs" />
+    <Compile Include="ViewModel\RegionInstructionQuery.cs" />
+    <Compile Include="ViewModel\RegionSatInfo.cs" />
     <Compile Include="View\MainWindow2.xaml.cs">
       <DependentUpon>MainWindow2.xaml</DependentUpon>
     </Compile>

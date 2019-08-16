@@ -4,11 +4,48 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:HistorydataPolling.View"
+      xmlns:View="clr-namespace:Utility.Tool.Controls.View;assembly=Utility.Tool.Controls"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="ZLPage">
+      Title="指令查询结果">
+    <Border Margin="10" Background="#332028BA" BorderBrush="#FF006CFF" BorderThickness="1" CornerRadius="30">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="1" Margin="10">
+                <Grid>
+                    <Grid.RowDefinitions>
 
-    <Grid>
-        
-    </Grid>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="218*"/>
+                        <ColumnDefinition Width="114"/>
+                        <ColumnDefinition Width="219*"/>
+                        <ColumnDefinition Width="120"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0" Grid.ColumnSpan="5">
+                        <DataGrid x:Name="DisplayInstructValues" IsReadOnly="True" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.VerticalScrollBarVisibility="Visible"  Style="{StaticResource DataGridStyle}" BorderThickness="0,0,1,0" ItemsSource="{Binding }" Margin="5,5,5,33" >
+                            <DataGrid.Columns>
+                                <DataGridTextColumn FontSize="11" Binding="{Binding CreateTime}"  Width="1.3*"  Header="创建时间"  ElementStyle="{StaticResource DataGridTextColumnSytle}" />
+                                <DataGridTextColumn Binding="{Binding CMDCode}" Width="*" Header="指令代号"  ElementStyle="{StaticResource DataGridTextColumnSytle}"/>
+                                <DataGridTextColumn Binding="{Binding CMDDesc}" Width="*" Header="指令描述"  ElementStyle="{StaticResource DataGridTextColumnSytle}"/>
+                                <DataGridTextColumn FontSize="12" Binding="{Binding CMDData}" Width="3*" Header="指令值"  ElementStyle="{StaticResource DataGridTextColumnSytle}"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+
+
+
+                    </Grid>
+
+
+
+
+
+                </Grid>
+            </Grid>
+        </Grid>
+    </Border>
 </Page>
