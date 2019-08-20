@@ -82,7 +82,12 @@ namespace HistorydataPolling.View
             if (string.IsNullOrEmpty(tBPara.Text))
             {
                 MessageBox.Show("请输入查询信息！");
-                return ;
+                return;
+            }
+            else if (RadioButtonZL.IsChecked == false || RadioButtonYC.IsChecked == false)
+            {
+                MessageBox.Show("请选择参数信息！");
+                return;
             }
             if (RadioButtonYC.IsChecked == true)
             {
