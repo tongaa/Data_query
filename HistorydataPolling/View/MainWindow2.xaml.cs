@@ -17,6 +17,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using static HistorydataPolling.FileCtrol.Common.ff;
 
 namespace HistorydataPolling.View
 {
@@ -25,6 +26,7 @@ namespace HistorydataPolling.View
     /// </summary>
     public partial class MainWindow2 : Window
     {
+      
         public MainWindow2()
         {
             InitializeComponent();
@@ -73,6 +75,7 @@ namespace HistorydataPolling.View
         }
 
 
+        
 
 
         private void BtnSeek_Click(object sender, RoutedEventArgs e)
@@ -111,6 +114,42 @@ namespace HistorydataPolling.View
 
            
         }
-    }
 
+        private void Btn_export2_Click(object sender, RoutedEventArgs e)
+        {
+           
+            if (RadioButtonZL.IsChecked == true)
+            {
+                ZLPage zlPage = new ZLPage();
+                zlPage = (ZLPage)frame.Content;
+                if (zlPage.DisplayInstructValues.Items.Count > 0)
+                {
+                    ExportExcel.ExportDataGridSaveAs(true, zlPage.DisplayInstructValues);
+
+                }
+            }
+      
+            else if (RadioButtonYC.IsChecked == true)
+            {
+                YCPage ycPage = new YCPage();
+                ycPage = (YCPage)frame.Content;
+                if (ycPage.DisplayValues.Items.Count > 0)
+                {
+                    ExportExcel.ExportDataGridSaveAs(true, ycPage.DisplayValues);
+
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("无法保存");
+            }
+            //ExportToExcel2 testExcel = new ExportToExcel2();
+            //testExcel.Export(this.DATA_GRIDpp, "rrr");
+
+        }
+
+    }
 }
+
+

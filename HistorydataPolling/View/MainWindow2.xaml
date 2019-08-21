@@ -59,7 +59,7 @@
                 <ComboBox x:Name="combox_type" Grid.Row="0" Grid.Column="1" ItemsSource="{Binding }" DisplayMemberPath="SatName" Margin="3"  
                    DropDownOpened="Combox_type_DropDownOpened" SelectedIndex="0"    >
                 </ComboBox>
-                <Button Grid.Row="0" Grid.Column="7" Content="导出数据" Margin="19,3,3,3" Style="{StaticResource ButtonStyle}"></Button>
+                <Button x:Name="btn_export2" Grid.Row="0" Grid.Column="7" Content="导出数据" Margin="19,3,3,3" Style="{StaticResource ButtonStyle}" Click="Btn_export2_Click" ></Button>
 
                 <Border Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="8" Style="{StaticResource WindosTileBorderStyle}"/>
                 <!--StackPanel -->
