@@ -1,4 +1,5 @@
-﻿using HistorydataPolling.Model;
+﻿using HistorydataPolling.Common.FileCtrol.Common;
+using HistorydataPolling.Model;
 using HistorydataPolling.Server.MainHandle;
 using HistorydataPolling.Server.ThreeLevelLinkageDataItem;
 using HistorydataPolling.ViewModel;
@@ -124,8 +125,15 @@ namespace HistorydataPolling.View
                 zlPage = (ZLPage)frame.Content;
                 if (zlPage.DisplayInstructValues.Items.Count > 0)
                 {
-                    ExportExcel.ExportDataGridSaveAs(true, zlPage.DisplayInstructValues);
+                     //ExportExcel.ExportDataGridSaveAs(true, zlPage.DisplayInstructValues);  //此方法打开会报异常
+                    DataGridRow rowContainer = (DataGridRow)zlPage.DisplayInstructValues.ItemContainerGenerator.ContainerFromIndex(0);
+                    ExportToExcel2.EE(zlPage.DisplayInstructValues, "指令查询数据结果", "制表时间:"+ DateTime.Now.ToString());
 
+
+                }
+                else
+                {
+                    MessageBox.Show("没有数据！");
                 }
             }
       
@@ -135,10 +143,16 @@ namespace HistorydataPolling.View
                 ycPage = (YCPage)frame.Content;
                 if (ycPage.DisplayValues.Items.Count > 0)
                 {
-                    ExportExcel.ExportDataGridSaveAs(true, ycPage.DisplayValues);
+                      // ExportExcel.ExportDataGridSaveAs(true, ycPage.DisplayValues);//此方法打开会报异常  
+                    DataGridRow rowContainer = (DataGridRow)ycPage.DisplayValues.ItemContainerGenerator.ContainerFromIndex(0);
+                    ExportToExcel2.EE(ycPage.DisplayValues, "遥测查询数据结果", "制表时间:" + DateTime.Now.ToString());
+
 
                 }
-
+                else
+                {
+                    MessageBox.Show("没有数据！");
+                }
             }
             else
             {

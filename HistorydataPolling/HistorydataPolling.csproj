@@ -79,6 +79,10 @@
     <Reference Include="MongoDB.Driver.Core">
       <HintPath>..\..\vs2017Demo\HistoricalDataQuery\bin\Debug\MongoDB.Driver.Core.2.6.0\lib\net45\MongoDB.Driver.Core.dll</HintPath>
     </Reference>
+    <Reference Include="NPOI, Version=2.0.0.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\NPOI.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
@@ -113,6 +117,7 @@
     </ApplicationDefinition>
     <Compile Include="Common\DataBase\Mongodb\ConfigManager.cs" />
     <Compile Include="Common\DataBase\Mongodb\MongoDBHelper.cs" />
+    <Compile Include="Common\FileCtrol\Common\ExportToExcel2.cs" />
     <Compile Include="Common\WpfHelp\DataGridHelper.cs" />
     <Compile Include="Common\FileCtrol\Common\ExportToExcel .cs" />
     <Compile Include="Common\FileCtrol\SaveFile.cs" />

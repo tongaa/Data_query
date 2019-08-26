@@ -13,6 +13,8 @@ namespace HistorydataPolling.FileCtrol.Common
 {
     public class ff
     {
+
+       // 此方法打开会报异常 暂时先不用了！
         public static class ExportExcel
         {
             #region 导出DataGrid数据到Excel
