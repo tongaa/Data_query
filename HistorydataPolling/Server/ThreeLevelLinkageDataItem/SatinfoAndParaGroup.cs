@@ -16,11 +16,16 @@ namespace HistorydataPolling.Server.ThreeLevelLinkageDataItem
         public IMongoCollection<BsonDocument> col2;  //集合 
         public IMongoCollection<BsonDocument> col3;  //集合 
 
+        public SatinfoAndParaGroup()
+        {
+            col = MongoDBHelper<SatInfomation>.Init();
+        }
+
         //卫星信息表和T_ParaMain表联系
         public List<BsonDocument> getSatinfoParaGroup()
         {
             string ParaCodeFirstHeader;
-            col = MongoDBHelper<SatInfomation>.Init();
+           
             col2 = MongoDBHelper<ParaMain>.Init();
             col3 = MongoDBHelper<Package>.Init();
 

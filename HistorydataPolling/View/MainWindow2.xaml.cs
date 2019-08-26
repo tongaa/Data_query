@@ -1,5 +1,6 @@
 ﻿using HistorydataPolling.Common.FileCtrol.Common;
 using HistorydataPolling.Model;
+using HistorydataPolling.Server;
 using HistorydataPolling.Server.MainHandle;
 using HistorydataPolling.Server.ThreeLevelLinkageDataItem;
 using HistorydataPolling.ViewModel;
@@ -30,6 +31,8 @@ namespace HistorydataPolling.View
       
         public MainWindow2()
         {
+           // ComboxSearchHelp.ToComboxDisplay("","" );
+            ComboxSearchHelp.GetAllInstruct("", "");
             InitializeComponent();
 
         }

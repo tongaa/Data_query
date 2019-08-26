@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace HistorydataPolling.Model
 {
     [BsonIgnoreExtraElements]
-    public class InstructPara
+    public class CMDMain
     {
 
         public ObjectId _id { get; set; }

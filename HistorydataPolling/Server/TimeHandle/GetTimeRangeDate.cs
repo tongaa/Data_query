@@ -105,7 +105,7 @@ namespace HistorydataPolling.Server
                     throw new Exception(string.Format("文档集合{0}读取失败", ConfigManager.GetConnectionString(_collectionName2)));
                 }
             }
-            else
+            else //遥测历史数据
             {
                 _collectName = ConfigManager.GetConnectionString(_collectName);
                 //3、文档集合（数据表）
@@ -131,5 +131,6 @@ namespace HistorydataPolling.Server
             return result;
         }
 
+       
     }
 }

@@ -127,6 +127,7 @@
     <Compile Include="Model\ParaMain.cs" />
     <Compile Include="Model\ParaStorage.cs" />
     <Compile Include="Model\SatInfomation.cs" />
+    <Compile Include="Server\ComboxSearchHelp.cs" />
     <Compile Include="Server\MainHandle\MainForButtonHandle.cs" />
     <Compile Include="ViewModel\RegionInfo.cs" />
     <Compile Include="ViewModel\RegionInfo2.cs" />

@@ -43,14 +43,14 @@
                     <RowDefinition></RowDefinition>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="102*"></ColumnDefinition>
-                    <ColumnDefinition Width="101*"></ColumnDefinition>
-                    <ColumnDefinition Width="96*"></ColumnDefinition>
-                    <ColumnDefinition Width="58*"></ColumnDefinition>
-                    <ColumnDefinition Width="138*"></ColumnDefinition>
-                    <ColumnDefinition Width="197*"></ColumnDefinition>
-                    <ColumnDefinition Width="6*"></ColumnDefinition>
-                    <ColumnDefinition Width="100*"></ColumnDefinition>
+                    <ColumnDefinition Width="115*"></ColumnDefinition>
+                    <ColumnDefinition Width="114*"></ColumnDefinition>
+                    <ColumnDefinition Width="108*"></ColumnDefinition>
+                    <ColumnDefinition Width="65*"></ColumnDefinition>
+                    <ColumnDefinition Width="154*"></ColumnDefinition>
+                    <ColumnDefinition Width="183*"></ColumnDefinition>
+                    <ColumnDefinition Width="52*"></ColumnDefinition>
+                    <ColumnDefinition Width="107*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
 
                 <Button Visibility="Hidden" Style="{StaticResource ButtonStyle}"  Content="数据库配置" Grid.Row="0" Grid.Column="2" Margin="3" FontWeight="Bold">
@@ -59,12 +59,17 @@
                 <ComboBox x:Name="combox_type" Grid.Row="0" Grid.Column="1" ItemsSource="{Binding }" DisplayMemberPath="SatName" Margin="3"  
                    DropDownOpened="Combox_type_DropDownOpened" SelectedIndex="0"    >
                 </ComboBox>
+                <ComboBox x:Name="comboxDisplay" Grid.Row="0" Grid.Column="2" ItemsSource="{Binding }" DisplayMemberPath="DisplayParaInfo" Margin="3"  
+                   DropDownOpened="Combox_type_DropDownOpened" SelectedIndex="0"    >
+                </ComboBox>
+
+
                 <Button x:Name="btn_export2" Grid.Row="0" Grid.Column="7" Content="导出数据" Margin="19,3,3,3" Style="{StaticResource ButtonStyle}" Click="Btn_export2_Click" ></Button>
 
                 <Border Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="8" Style="{StaticResource WindosTileBorderStyle}"/>
                 <!--StackPanel -->
                 <StackPanel Grid.Row="1" Grid.Column="0" Grid.RowSpan="8">
-                    <RadioButton x:Name="RadioButtonYC"  Height="47"  Margin="5"  Content="遥测参数" TextElement.Foreground="White"  />
+                    <RadioButton x:Name="RadioButtonYC" IsChecked="True" Height="47"  Margin="5"  Content="遥测参数" TextElement.Foreground="White"  />
                     <RadioButton  x:Name="RadioButtonZL" Height="47"  Margin="5" Content="指令参数" TextElement.Foreground="White" />
                 </StackPanel>
                 <Border Grid.Row="1" Grid.Column="0" Grid.RowSpan="8" Style="{StaticResource RightLineBorderStyle}" Height="Auto"  />
@@ -74,7 +79,7 @@
                         <TextBox.Resources>
                             <VisualBrush x:Key="HintText" TileMode="None" Opacity="0.5" Stretch="None" AlignmentX="Left">
                                 <VisualBrush.Visual>
-                                    <TextBlock FontStyle="Italic" Text="输入要查询的参数" Style="{StaticResource TextBlockStyle2}" FontSize="11" />
+                                    <TextBlock FontStyle="Italic" Text="输入要查询的参数代号" Style="{StaticResource TextBlockStyle2}" FontSize="10" />
                                 </VisualBrush.Visual>
                             </VisualBrush>
                         </TextBox.Resources>
