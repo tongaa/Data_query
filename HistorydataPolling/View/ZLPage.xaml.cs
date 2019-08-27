@@ -43,7 +43,8 @@ namespace HistorydataPolling.View
 
             // MainWindow2 parentWindow = new MainWindow2();
 
-            string ParaCode = ParentWindow.tBPara.Text;
+          //  string ParaCode = ParentWindow.tBPara.Text;
+            string ParaCode = ParentWindow.ComboxPara.Text.Split('-')[0];
             DateTime t1 = ParentWindow.SelectedStartTime.SelectDateTime;
             DateTime t2 = this.parentWindow.SelectedStopTime.SelectDateTime;
             paraResultList = handle.SearchDataForNeed(t1, t2, ParaCode, whichPara);

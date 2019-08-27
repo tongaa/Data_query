@@ -17,7 +17,7 @@ namespace HistorydataPolling.Server
     class ComboxSearchHelp
     {
         public static IMongoCollection<BsonDocument> col4;  //集合 
-        public static List<BsonDocument> ToComboxDisplay(string whichSat,string whichPara)
+        public static List<BsonDocument> GetAllRemote(string whichSat, bool whichPara)//获得某一个卫星的参数信息
         {
             List<BsonDocument> temp = new List<BsonDocument>();
             List<BsonDocument> targetData = new List<BsonDocument>();
@@ -29,29 +29,28 @@ namespace HistorydataPolling.Server
 
                 if (item[0] == whichSat)
                 {
-                    switch (whichPara)
+                    if (whichPara == true)
                     {
-                        case "RadioButtonYC":
-                            targetData.Add(new BsonDocument { { "参数代号", item[2] }, { "参数描述", item[3] }, { "包描述", item[4] }, { "包头", item[5] } });
-                            break;
-                        case "RadioButtonZL":
-                            targetData.Add(new BsonDocument { { "参数代号", item[2] }, { "参数描述", item[3] }, { "包描述", item[4] }, { "包头", item[5] } });
-                            break;
+                        targetData.Add(new BsonDocument { { "参数代号", item[2] }, { "参数描述", item[3] }, { "包描述", item[4] }, { "包头", item[5] } });
 
-                        default:
-                            break;
                     }
 
 
-                    
+
                 }
             }
-    
-          
+
+
 
             return targetData;
         }
-        public static List<BsonDocument> GetAllInstruct(string whichSat, string whichPara)
+        /// <summary>
+        /// 获取所有指令参数  给界面显示用
+        /// </summary>
+        /// <param name="whichSat"> 选择 那一颗卫星的</param>
+        /// <param name="whichPara">选择查询的是遥测信息还是指令信息 </param>
+        /// <returns></returns>
+        public static List<BsonDocument> GetAllInstruct(string whichSat, bool whichPara)
         {
 
 
@@ -63,12 +62,22 @@ namespace HistorydataPolling.Server
 
             foreach (var item in result)
             {
-                Console.WriteLine(item);
-            }
+                // Console.WriteLine(item.ToBsonDocument());
+                if (item.ToBsonDocument()[0] == whichSat)
+                {
+                    if (whichPara == true)
+                    {
+                        cmdmMains.Add(new BsonDocument { /*{ "SatInfo", item.ToBsonDocument()[0] },*/ { "指令代号", item.ToBsonDocument()[1] }, { "指令描述", item.ToBsonDocument()[2] } });
 
-                return cmdmMains;
-            }
+                    }
 
-        
+
+                }
+
+               
+            }
+            return cmdmMains;
+
+        }
     }
 }

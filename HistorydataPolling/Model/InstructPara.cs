@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace HistorydataPolling.Model
 {
+    /// <summary>
+    /// 指令参数实体
+    /// </summary>
     [BsonIgnoreExtraElements]
     public class CMDMain
     {

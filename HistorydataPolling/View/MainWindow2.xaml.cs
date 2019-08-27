@@ -28,13 +28,32 @@ namespace HistorydataPolling.View
     /// </summary>
     public partial class MainWindow2 : Window
     {
-      
+        public static ObservableCollection<RegisterDisplayParaInfo> tempCache = new ObservableCollection<RegisterDisplayParaInfo>();
+        bool ready = false;
+
+        bool ? RadioButtonYCState = false;
+        bool ? RadioButtonZLState = false;
+      public  string previousSatInfo = null;
         public MainWindow2()
         {
-           // ComboxSearchHelp.ToComboxDisplay("","" );
-            ComboxSearchHelp.GetAllInstruct("", "");
+            // ComboxSearchHelp.ToComboxDisplay("","" );
+           
             InitializeComponent();
+            {
+                List<BsonDocument> temp = new List<BsonDocument>();
 
+                ObservableCollection<SatinfoName> ResultList = new ObservableCollection<SatinfoName>();
+                SatinfoAndParaGroup satinfo = new SatinfoAndParaGroup();
+                temp = satinfo.getSatinfo();
+
+                foreach (var item in temp)
+                {
+                    ResultList.Add(new SatinfoName(item[0].ToString()));
+                }
+                // ComboxSatInfo.Text = ResultList[0].ToString();
+                this.ComboxSatInfo.ItemsSource = ResultList;
+
+            }
         }
 
         #region 窗口操作
@@ -63,37 +82,109 @@ namespace HistorydataPolling.View
         /// <param name="e"></param>
         private void Combox_type_DropDownOpened(object sender, EventArgs e) //单击combox控件的事件
         {
+            //+++转移到窗口初始化中去完成 MainWindow2()+++
+            //List<BsonDocument> temp = new List<BsonDocument>();
 
-            List<BsonDocument> temp = new List<BsonDocument>();
+            //ObservableCollection<SatinfoName> ResultList = new ObservableCollection<SatinfoName>();
+            //SatinfoAndParaGroup satinfo = new SatinfoAndParaGroup();
+            //temp = satinfo.getSatinfo();
 
-            ObservableCollection<SatinfoName> ResultList = new ObservableCollection<SatinfoName>();
-            SatinfoAndParaGroup satinfo = new SatinfoAndParaGroup();
-            temp = satinfo.getSatinfo();
-
-            foreach (var item in temp)
+            //foreach (var item in temp)
+            //{
+            //    ResultList.Add(new SatinfoName(item[0].ToString()));
+            //}
+            //ComboxSatInfo.Text = ResultList[0].ToString();
+            //ComboxSatInfo.ItemsSource = ResultList;
+        }
+       
+        private void ComboxPara_DropDownOpened_1(object sender, EventArgs e)
+        {
+             string currentSatInfo = this.ComboxSatInfo.Text;
+            
+            if ((ready == true) && (previousSatInfo == currentSatInfo) )
             {
-                ResultList.Add(new SatinfoName(item[0].ToString()));
+                if ((RadioButtonYC.IsChecked == true) == RadioButtonYCState )
+                {
+
+                    ComboxPara.ItemsSource = MainWindow2.tempCache;
+                    return;
+                }
+                else if ((RadioButtonZL.IsChecked == true) == RadioButtonZLState)
+                {
+                    ComboxPara.ItemsSource = MainWindow2.tempCache;
+                    return;
+                }
+                else
+                {
+
+                }
             }
+            List<BsonDocument> temp = new List<BsonDocument>();
+          
+            ObservableCollection<RegisterDisplayParaInfo> ResultList = new ObservableCollection<RegisterDisplayParaInfo>();
+            ObservableCollection<RegisterDisplayParaInfo> tempCache = new ObservableCollection<RegisterDisplayParaInfo>();
+            //SatinfoAndParaGroup satinfo = new SatinfoAndParaGroup();
+            // temp = satinfo.getSatinfo();
+
+            if (RadioButtonYC.IsChecked == true)
+            {
+                RadioButtonZLState = false;
+                RadioButtonYCState = true;
+
+                temp = ComboxSearchHelp.GetAllRemote(currentSatInfo, true);
+                foreach (var item in temp)
+                {
+                    ResultList.Add(new RegisterDisplayParaInfo(item[0].ToString() + "-"+ item[1].ToString() + "-" + item[2].ToString() + "-" + item[3].ToString() ));
+
+
+                }
+
+            }
+            else if(RadioButtonZL.IsChecked == true)
+            {
+                RadioButtonZLState = true;
+                RadioButtonYCState = false;
+                temp = ComboxSearchHelp.GetAllInstruct(currentSatInfo, true);
+                foreach (var item in temp)
+                {
+                    ResultList.Add(new RegisterDisplayParaInfo(item[0].ToString() +"-"+ item[1].ToString()));
+
+
+                }
+            }
+
+            if (ResultList.Count == 0)
+            {
+                MessageBox.Show("没有数据！");
+                return;
+            }
+            MainWindow2.tempCache = ResultList;
+            ready = true;
+            previousSatInfo = currentSatInfo;
            
-            combox_type.ItemsSource = ResultList;
+            ComboxPara.ItemsSource = MainWindow2.tempCache;
+
+
         }
 
 
-        
 
 
         private void BtnSeek_Click(object sender, RoutedEventArgs e)
         {
             string whichPara= null;
             List<BsonDocument> temp = new List<BsonDocument>();
-            if (string.IsNullOrEmpty(tBPara.Text))
+            //if (string.IsNullOrEmpty(tBPara.Text))
+            if (string.IsNullOrEmpty(ComboxPara.Text))
             {
-                MessageBox.Show("请输入查询信息！");
+                //MessageBox.Show("请输入查询信息！");
+                MessageBox.Show("请选择查询信息！");
                 return;
             }
             else if (RadioButtonZL.IsChecked == false && RadioButtonYC.IsChecked == false)
             {
-                MessageBox.Show("请选择参数信息！");
+               // MessageBox.Show("请选择参数信息！");
+                MessageBox.Show("请选择查询信息！");
                 return;
             }
             if (RadioButtonYC.IsChecked == true)
@@ -166,6 +257,7 @@ namespace HistorydataPolling.View
 
         }
 
+       
     }
 }
 
