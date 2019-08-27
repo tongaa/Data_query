@@ -30,7 +30,7 @@ namespace HistorydataPolling.View
     {
         public static ObservableCollection<RegisterDisplayParaInfo> tempCache = new ObservableCollection<RegisterDisplayParaInfo>();
         bool ready = false;
-
+        bool ItemsClearFlag = false;
         bool ? RadioButtonYCState = false;
         bool ? RadioButtonZLState = false;
       public  string previousSatInfo = null;
@@ -50,10 +50,13 @@ namespace HistorydataPolling.View
                 {
                     ResultList.Add(new SatinfoName(item[0].ToString()));
                 }
-                // ComboxSatInfo.Text = ResultList[0].ToString();
+                
                 this.ComboxSatInfo.ItemsSource = ResultList;
 
             }
+            RegisterDisplayParaInfo test = new RegisterDisplayParaInfo("在此选择要查询的参数");
+            this.ComboxPara.Items.Add(test);
+            ItemsClearFlag = true; 
         }
 
         #region 窗口操作
@@ -100,7 +103,8 @@ namespace HistorydataPolling.View
         private void ComboxPara_DropDownOpened_1(object sender, EventArgs e)
         {
              string currentSatInfo = this.ComboxSatInfo.Text;
-            
+             
+
             if ((ready == true) && (previousSatInfo == currentSatInfo) )
             {
                 if ((RadioButtonYC.IsChecked == true) == RadioButtonYCState )
@@ -116,7 +120,7 @@ namespace HistorydataPolling.View
                 }
                 else
                 {
-
+                  
                 }
             }
             List<BsonDocument> temp = new List<BsonDocument>();
@@ -130,7 +134,7 @@ namespace HistorydataPolling.View
             {
                 RadioButtonZLState = false;
                 RadioButtonYCState = true;
-
+               
                 temp = ComboxSearchHelp.GetAllRemote(currentSatInfo, true);
                 foreach (var item in temp)
                 {
@@ -158,11 +162,20 @@ namespace HistorydataPolling.View
                 MessageBox.Show("没有数据！");
                 return;
             }
+            if (ItemsClearFlag == true) //此时  ComboxPara还没有数据 仅是构造函数加载的提示数据
+            {
+                ComboxPara.Items.Clear(); //清空一下防止报错
+                ItemsClearFlag = false;
+            }
             MainWindow2.tempCache = ResultList;
             ready = true;
             previousSatInfo = currentSatInfo;
            
-            ComboxPara.ItemsSource = MainWindow2.tempCache;
+        
+           ComboxPara.ItemsSource = MainWindow2.tempCache;
+            
+           
+            
 
 
         }
